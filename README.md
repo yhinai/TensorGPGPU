@@ -447,10 +447,11 @@ For RTL simulation with waveform capture:
 
 ## Contributing
 
-We welcome contributions to improve and extend functions. 
-Before request a pull, Please ensure that:
+We welcome contributions to improve and extend functionality.
+
+Before requesting a pull, please ensure that:
 - Your code follows the project's coding style
 - All tests pass
 - You've added tests for new functionality
-- You've updated documentation as needed
+- You've updated the documentation as needed
 
