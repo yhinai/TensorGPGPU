@@ -360,7 +360,6 @@ def layer_norm_kernel(
     # Store results
     vx.store(y_ptr + offset_b[:, None] * N + offset_n[None, :], y, mask=mask)
 ```
-```
 
 ## Performance
 
