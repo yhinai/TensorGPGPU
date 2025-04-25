@@ -1,0 +1,48 @@
+CONFIGS=-DNUM_CORES=2 -DPERF_ENABLE
+Running: CONFIGS="-DNUM_CORES=2 -DPERF_ENABLE" make -C ./ci/../runtime/simx > /dev/null
+Running: make -C ./ci/../tests/opencl/sgemm run-simx
+make: Entering directory '/home/bkam/Documents/Research/test/vortex-dev/build/tests/opencl/sgemm'
+LD_LIBRARY_PATH=/home/bkam/tools/pocl/lib:/home/bkam/Documents/Research/test/vortex-dev/build/runtime:/home/bkam/tools/llvm-vortex/lib: POCL_VORTEX_XLEN=32 LLVM_PREFIX=/home/bkam/tools/llvm-vortex POCL_VORTEX_BINTOOL="OBJCOPY=/home/bkam/tools/llvm-vortex/bin/llvm-objcopy /home/bkam/Documents/Research/test/vortex-dev/kernel/scripts/vxbin.py" POCL_VORTEX_CFLAGS="-march=rv32imaf -mabi=ilp32f -O3 -mcmodel=medany --sysroot=/home/bkam/tools/riscv32-gnu-toolchain/riscv32-unknown-elf --gcc-toolchain=/home/bkam/tools/riscv32-gnu-toolchain -fno-rtti -fno-exceptions -nostartfiles -nostdlib -fdata-sections -ffunction-sections -I/home/bkam/Documents/Research/test/vortex-dev/build/hw -I/home/bkam/Documents/Research/test/vortex-dev/kernel/include -DXLEN_32 -DNDEBUG -Xclang -target-feature -Xclang +vortex -Xclang -target-feature -Xclang +zicond -mllvm -disable-loop-idiom-all" POCL_VORTEX_LDFLAGS="-Wl,-Bstatic,--gc-sections,-T/home/bkam/Documents/Research/test/vortex-dev/kernel/scripts/link32.ld,--defsym=STARTUP_ADDR=0x80000000 /home/bkam/Documents/Research/test/vortex-dev/build/kernel/libvortex.a -L/home/bkam/tools/libc32/lib -lm -lc /home/bkam/tools/libcrt32/lib/baremetal/libclang_rt.builtins-riscv32.a" VORTEX_DRIVER=simx ./sgemm -n32
+Workload size=32
+Create context
+Create program from kernel source
+Upload source buffers
+Execute the kernel
+Elapsed time: 901 ms
+Download destination buffer
+Verify result
+PASSED!
+PERF: core0: scheduler idle=83569 (69%)
+PERF: core0: scheduler stalls=0 (0%)
+PERF: core0: ibuffer stalls=6040 (5%)
+PERF: core0: scoreboard stalls=62311 (51%) (alu=32%, fpu=0%, lsu=67%, csrs=0%, wctl=0%)
+PERF: core0: operands stalls=0 (0%)
+PERF: core0: ifetches=36929
+PERF: core0: ifetch latency=7 cycles
+PERF: core0: loads=41290
+PERF: core0: load latency=12 cycles
+PERF: core0: stores=2775
+PERF: core0: instrs=146542, cycles=120390, IPC=1.217227
+PERF: core1: scheduler idle=83386 (69%)
+PERF: core1: scheduler stalls=0 (0%)
+PERF: core1: ibuffer stalls=5276 (4%)
+PERF: core1: scoreboard stalls=62069 (51%) (alu=32%, fpu=0%, lsu=67%, csrs=0%, wctl=0%)
+PERF: core1: operands stalls=0 (0%)
+PERF: core1: ifetches=36929
+PERF: core1: ifetch latency=7 cycles
+PERF: core1: loads=41290
+PERF: core1: load latency=12 cycles
+PERF: core1: stores=2775
+PERF: core1: instrs=146542, cycles=120154, IPC=1.219618
+PERF: scheduler idle=166955 (69%)
+PERF: scheduler stalls=0 (0%)
+PERF: ibuffer stalls=11316 (4%)
+PERF: scoreboard stalls=124380 (51%) (alu=32%, fpu=0%, lsu=67%, csrs=0%, wctl=0%)
+PERF: operands stalls=0 (0%)
+PERF: ifetches=73858
+PERF: loads=82580
+PERF: stores=5550
+PERF: ifetch latency=7 cycles
+PERF: load latency=12 cycles
+PERF: instrs=293084, cycles=120390, IPC=2.434455
+make: Leaving directory '/home/bkam/Documents/Research/test/vortex-dev/build/tests/opencl/sgemm'

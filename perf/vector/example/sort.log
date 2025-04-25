@@ -1,0 +1,55 @@
+CONFIGS=-DNUM_CORES=2 -DPERF_ENABLE
+Running: CONFIGS="-DNUM_CORES=2 -DPERF_ENABLE" make -C ./ci/../runtime/simx > /dev/null
+Running: make -C ./ci/../tests/regression/sort run-simx
+make: Entering directory '/home/bkam/Documents/Research/test/vortex-dev/build/tests/regression/sort'
+LD_LIBRARY_PATH=/home/bkam/Documents/Research/test/vortex-dev/build/runtime: VORTEX_DRIVER=simx ./sort -n16
+open device connection
+number of points: 512
+buffer size: 2048 bytes
+allocate device memory
+dev_src=0x10000
+dev_dst=0x11000
+allocate host buffers
+upload source buffer
+upload program
+upload kernel argument
+start device
+wait for completion
+download destination buffer
+verify result
+cleanup
+PERF: core0: scheduler idle=1588005 (74%)
+PERF: core0: scheduler stalls=0 (0%)
+PERF: core0: ibuffer stalls=410 (0%)
+PERF: core0: scoreboard stalls=1153030 (53%) (alu=80%, fpu=0%, lsu=19%, csrs=0%, wctl=0%)
+PERF: core0: operands stalls=0 (0%)
+PERF: core0: ifetches=553162
+PERF: core0: ifetch latency=6 cycles
+PERF: core0: loads=133439
+PERF: core0: load latency=11 cycles
+PERF: core0: stores=2000
+PERF: core0: instrs=1772145, cycles=2141059, IPC=0.827696
+PERF: core1: scheduler idle=1619392 (74%)
+PERF: core1: scheduler stalls=0 (0%)
+PERF: core1: ibuffer stalls=389 (0%)
+PERF: core1: scoreboard stalls=1164414 (53%) (alu=81%, fpu=0%, lsu=18%, csrs=0%, wctl=0%)
+PERF: core1: operands stalls=0 (0%)
+PERF: core1: ifetches=555102
+PERF: core1: ifetch latency=6 cycles
+PERF: core1: loads=133439
+PERF: core1: load latency=11 cycles
+PERF: core1: stores=2000
+PERF: core1: instrs=1795194, cycles=2174386, IPC=0.825610
+PERF: scheduler idle=3207397 (74%)
+PERF: scheduler stalls=0 (0%)
+PERF: ibuffer stalls=799 (0%)
+PERF: scoreboard stalls=2317444 (53%) (alu=80%, fpu=0%, lsu=19%, csrs=0%, wctl=0%)
+PERF: operands stalls=0 (0%)
+PERF: ifetches=1108264
+PERF: loads=266878
+PERF: stores=4000
+PERF: ifetch latency=6 cycles
+PERF: load latency=11 cycles
+PERF: instrs=3567339, cycles=2174386, IPC=1.640619
+PASSED!
+make: Leaving directory '/home/bkam/Documents/Research/test/vortex-dev/build/tests/regression/sort'

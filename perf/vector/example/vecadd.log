@@ -1,0 +1,49 @@
+CONFIGS=-DNUM_CORES=2 -DPERF_ENABLE
+Running: CONFIGS="-DNUM_CORES=2 -DPERF_ENABLE" make -C ./ci/../runtime/simx > /dev/null
+Running: make -C ./ci/../tests/opencl/vecadd run-simx
+make: Entering directory '/home/bkam/Documents/Research/test/vortex-dev/build/tests/opencl/vecadd'
+LD_LIBRARY_PATH=/home/bkam/tools/pocl/lib:/home/bkam/Documents/Research/test/vortex-dev/build/runtime:/home/bkam/tools/llvm-vortex/lib: POCL_VORTEX_XLEN=32 LLVM_PREFIX=/home/bkam/tools/llvm-vortex POCL_VORTEX_BINTOOL="OBJCOPY=/home/bkam/tools/llvm-vortex/bin/llvm-objcopy /home/bkam/Documents/Research/test/vortex-dev/kernel/scripts/vxbin.py" POCL_VORTEX_CFLAGS="-march=rv32imaf -mabi=ilp32f -O3 -mcmodel=medany --sysroot=/home/bkam/tools/riscv32-gnu-toolchain/riscv32-unknown-elf --gcc-toolchain=/home/bkam/tools/riscv32-gnu-toolchain -fno-rtti -fno-exceptions -nostartfiles -nostdlib -fdata-sections -ffunction-sections -I/home/bkam/Documents/Research/test/vortex-dev/build/hw -I/home/bkam/Documents/Research/test/vortex-dev/kernel/include -DXLEN_32 -DNDEBUG -Xclang -target-feature -Xclang +vortex -Xclang -target-feature -Xclang +zicond -mllvm -disable-loop-idiom-all" POCL_VORTEX_LDFLAGS="-Wl,-Bstatic,--gc-sections,-T/home/bkam/Documents/Research/test/vortex-dev/kernel/scripts/link32.ld,--defsym=STARTUP_ADDR=0x80000000 /home/bkam/Documents/Research/test/vortex-dev/build/kernel/libvortex.a -L/home/bkam/tools/libc32/lib -lm -lc /home/bkam/tools/libcrt32/lib/baremetal/libclang_rt.builtins-riscv32.a" VORTEX_DRIVER=simx ./vecadd -n64
+Workload size=64
+Create context
+Allocate device buffers
+Create program from kernel source
+Upload source buffers
+Execute the kernel
+Elapsed time: 129 ms
+Download destination buffer
+Verify result
+PASSED!
+PERF: core0: scheduler idle=19495 (93%)
+PERF: core0: scheduler stalls=0 (0%)
+PERF: core0: ibuffer stalls=525 (2%)
+PERF: core0: scoreboard stalls=5020 (23%) (alu=43%, fpu=0%, lsu=54%, csrs=1%, wctl=0%)
+PERF: core0: operands stalls=0 (0%)
+PERF: core0: ifetches=1538
+PERF: core0: ifetch latency=29 cycles
+PERF: core0: loads=743
+PERF: core0: load latency=68 cycles
+PERF: core0: stores=855
+PERF: core0: instrs=4999, cycles=20925, IPC=0.238901
+PERF: core1: scheduler idle=19494 (93%)
+PERF: core1: scheduler stalls=0 (0%)
+PERF: core1: ibuffer stalls=478 (2%)
+PERF: core1: scoreboard stalls=5015 (23%) (alu=43%, fpu=0%, lsu=54%, csrs=1%, wctl=0%)
+PERF: core1: operands stalls=0 (0%)
+PERF: core1: ifetches=1538
+PERF: core1: ifetch latency=29 cycles
+PERF: core1: loads=743
+PERF: core1: load latency=41 cycles
+PERF: core1: stores=855
+PERF: core1: instrs=4999, cycles=20924, IPC=0.238912
+PERF: scheduler idle=38989 (93%)
+PERF: scheduler stalls=0 (0%)
+PERF: ibuffer stalls=1003 (2%)
+PERF: scoreboard stalls=10035 (23%) (alu=43%, fpu=0%, lsu=54%, csrs=1%, wctl=0%)
+PERF: operands stalls=0 (0%)
+PERF: ifetches=3076
+PERF: loads=1486
+PERF: stores=1710
+PERF: ifetch latency=29 cycles
+PERF: load latency=55 cycles
+PERF: instrs=9998, cycles=20925, IPC=0.477802
+make: Leaving directory '/home/bkam/Documents/Research/test/vortex-dev/build/tests/opencl/vecadd'

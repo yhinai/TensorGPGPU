@@ -1,0 +1,1 @@
+python3 ../gen_graphs.py --categories "VecAdd" "Sgemm" "Sort" --ylabels "IPC" "Stores" --logfiles "vecadd.log" "sgemm.log" "sort.log" --counters "IPC" "stores" --title "IPC and Stores Benchmarks" --xlabel "Benchmarks" --output "gen_graphs.xlsx" --plot "ipc_stores.png"
